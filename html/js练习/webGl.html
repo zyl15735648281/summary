@@ -10,22 +10,50 @@
 <body>
 
 
-  <canvas style="border:1px solid red;" width: 200 height: 200 id="cvs">
+  <canvas style="border:1px solid green;" width: 200 height: 200 id="cvs">
     你的浏览器不支持 canvas 画布
   </canvas>
 
   <script>
+
     // 实现一个 webGL的图形
     var cvs = document.getElementById("cvs");
     // 获取上下文环境对象
     var gl = cvs.getContext("webgl");
 
+    console.dir(gl);
+
     // 设置绘制图形填充的颜色
     gl.clearColor(1.0, 0.0, 0.0, 1.0); // 颜色值会自动保存在缓存中
-    // gl.clear(gl.COLOR_BUFFER_BIT); // 调用缓存的颜色
-
+    gl.clear(gl.COLOR_BUFFER_BIT); // 调用缓存的颜色,  
     // 使用着色器
+    // 1. 创建一个着色器
+    // 创建一个顶点着色点
+    // 需要传入一个 4*4的矩阵
 
+    // 顶点着色器
+    const vsSource = `
+      void main() {
+        gl_Position = vec4(0.0, 0.0, 0.0, 2.0);
+        gl_PointSize = 100.0
+      }
+    `;
+
+    // 结尾着色器
+    const fsSource = `
+      void main() {
+        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+      }
+    `;
+
+    const shader = gl.createShader(gl.VERTEX_SHADER);
+    gl.shanderSource(shader, VSHADER_SOURCE);
+    gl.compileShader(shader);  
+
+    const fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fragShader,VSHADER_SOURCE)
+    gl.compileShader(fragShader);
+    
   </script>
 
 
