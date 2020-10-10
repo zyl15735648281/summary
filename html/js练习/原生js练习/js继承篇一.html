@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>这是理解对 js继承的理解代码</div>
+
+    <script type="text/javascript">
+    // 一、继承： 
+    // 为什么需要用继承： 1. 复用  2. 提高代码质量  3. 从数据结构角度考虑，节省内存
+    // 怎么实现继承： 
+    // 1. 原型链 继承
+    // 2. 借用构造函数继承
+    // 3. 组合继承
+    // 4. 原型式继承
+    // 5. 寄生式继承
+    // 6. 寄生式组合继承
+    // 继承的使用场景：
+
+    // 重点需要理解 对js原型链的理解
+    // 用代码分析
+
+       class Point{
+       }
+
+       class sonPoint extends Point{
+           constructor() {
+               super()
+           }
+       }
+
+       let cp = new sonPoint();
+
+       console.log(cp)
+
+
+
+    </script>
+</body>
+</html>
