@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>实现一个 vue</div>
+    <!-- 1. 要实现数据双向绑定
+    2. 实现指令
+    3. 自定义监听事件 -->
+    <!-- 如何理解 MVVM 框架，当m也就是数据发生改变的时候，vm会监测到变化， -->
+    <!-- 一. 目前几种框架实现数据双向绑定的方式
+    1. 发布-订阅者模式【backbone.js】
+    2. 臧质检查
+    3. object.get-->
+    <div id="app">
+        <p>{{msg}}</p>
+        <p v-text="msg"></p>
+        <p v-html="tag"></p>
+        <input type="text" name="" v-model="msg"/>
+        <button v-on:click="clickFn">点击按钮</button>
+    </div>
+
+    <script type="text/javascript" src="./src/compile.js"></script>
+    <script type="text/javascript" src="./src/vue.js"></script>
+    
+    
+
+    <script type="text/javascript">
+       const vm = new Vue({
+           el: "#app",
+           data: {
+               msg: "hello,vue",
+               tag: "<h3>haha</h3>"
+           }, 
+           methods: {
+                clickFn() {
+                    console.log(this.name)
+
+                }
+           }
+       })
+
+    </script>
+</body>
+</html>
