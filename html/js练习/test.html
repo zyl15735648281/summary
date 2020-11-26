@@ -13,30 +13,43 @@
   <!-- <script src="../../js/main.js"></script> -->
   <!-- https://www.jianshu.com/p/1b63a13c2701 -->
   <script   type="text/javascript">
-    // 乱七八糟的练习
-    
-    // new Promise(resolve => {
-    //   // setTimeout(() => {
-    //   resolve('hello');
-    //   // }, 2000);
-    // }).then(res => {
-    //   new Promise(resolve => {
-    //     // setTimeout(() => {
-    //     resolve('zhangyanli');
-    //     // }, 400);
-    //   }).then(res => {
-    //     console.log(res);
-    //   })
-    //   console.log(res);
-    // }).then(res => {
-    //   console.log(res);
-    // })
-    var arr = [4,6,7,79,8]
-    var tem = arr[1]
-    console.log("temp", tem)
-    console.log("删除之后的arr", arr)
-    arr.splice(1,1)
-    console.log("删除之后的arr", arr)
+    var twoSum = function(nums, target) {
+      // 两数之和待修复
+
+      if(nums && nums.length < 2){
+          return;
+      }
+      console.log(2333)
+      if(target == null) {
+          return;
+      }
+      console.log(45555)
+      let j = nums.length - 1;
+      let i = 0;
+
+      while(i < j) {
+        console.log(678)
+          
+          console.log("nums[i]", nums[i])
+          console.log("nums[j]", nums[j])
+          if(nums[i] + nums[j] == target){
+            console.log(222222)
+              return [i,j]
+          }
+          if(nums[i] < nums[j]){
+              i++
+          }
+          if(nums[i] > nums[j]){
+              j--
+          }
+      }
+
+      
+
+    };
+    var nums = [2,7,11,15]
+    twoSum(nums,9)
+    console.log(twoSum(nums,9))
 
   </script>
 
