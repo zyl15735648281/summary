@@ -5,51 +5,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>main.js</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  
 </head>
 
 <body>
+  <button id="login">点我登录</button>
   <p class="text"></p>
   张艳丽
   <!-- <script src="../../js/main.js"></script> -->
   <!-- https://www.jianshu.com/p/1b63a13c2701 -->
   <script   type="text/javascript">
-    var twoSum = function(nums, target) {
-      // 两数之和待修复
+  $("#login").click(function() {
+    // var formData = $("#loginForm").serialize();
+    // console.log(formData);
+    // alert(formData);
+    $.ajax({
+      url: 'http://af2019.tpddns.cn:8888/tums/account/v1/login',
+      type: "post",
+      data: JSON.stringify({
+        "password": "123456",
+        "username": "lixiang1"
+      }),
+      async: false,
+      dataType: "JSON",
+      contentType: "application/json;chaset-UTF-8",
 
-      if(nums && nums.length < 2){
-          return;
+      success: function(result) {  //这里就是我出错的地方
+       alert(result.msg);
+      },
+      error: function(data) {
+        alert("请求出错");
+        alert(data);
       }
-      console.log(2333)
-      if(target == null) {
-          return;
-      }
-      console.log(45555)
-      let j = nums.length - 1;
-      let i = 0;
+    });
+  });
+    // var twoSum = function(nums, target) {
+    //   // 两数之和待修复
 
-      while(i < j) {
-        console.log(678)
+    //   if(nums && nums.length < 2){
+    //       return;
+    //   }
+    //   console.log(2333)
+    //   if(target == null) {
+    //       return;
+    //   }
+    //   console.log(45555)
+    //   let j = nums.length - 1;
+    //   let i = 0;
+
+    //   while(i < j) {
+    //     console.log(678)
           
-          console.log("nums[i]", nums[i])
-          console.log("nums[j]", nums[j])
-          if(nums[i] + nums[j] == target){
-            console.log(222222)
-              return [i,j]
-          }
-          if(nums[i] < nums[j]){
-              i++
-          }
-          if(nums[i] > nums[j]){
-              j--
-          }
-      }
+    //       console.log("nums[i]", nums[i])
+    //       console.log("nums[j]", nums[j])
+    //       if(nums[i] + nums[j] == target){
+    //         console.log(222222)
+    //           return [i,j]
+    //       }
+    //       if(nums[i] < nums[j]){
+    //           i++
+    //       }
+    //       if(nums[i] > nums[j]){
+    //           j--
+    //       }
+    //   }
 
       
 
-    };
-    var nums = [2,7,11,15]
-    twoSum(nums,9)
-    console.log(twoSum(nums,9))
+    // };
+    // var nums = [2,7,11,15]
+    // twoSum(nums,9)
+    // console.log(twoSum(nums,9))
 
   </script>
 
